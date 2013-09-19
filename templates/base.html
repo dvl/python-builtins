@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="author" href="/humans.txt" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
+  <title>{{ builtin }}</title>
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>
