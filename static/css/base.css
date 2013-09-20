@@ -1,5 +1,4 @@
 body {
-  text-align: center;
   margin: 1em 0 0 0;
   vertical-align: middle;
   font-family: 'Lucida Console', 'Courier New';
@@ -13,7 +12,25 @@ body {
   line-height: 1.2;
 }
 
+#top {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+/*#logo {*/
+    /*float: left;*/
+/*}*/
+
+/*#menu {*/
+    /*float: left;*/
+    /*text-align: right;*/
+    /*padding: 60px 0 0 60px;*/
+    /*font-size: .8em;*/
+/*}*/
+
 #content {
+  clear: both;
   width: 760px;
   text-align: left;
   margin: 1em auto;
