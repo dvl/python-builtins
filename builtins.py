@@ -20,10 +20,12 @@ choices = ['abs','divmod','input','open','staticmethod','all','enumerate',
            'apply','delattr','help','next','setattr','buffer','dict','hex',
            'object','slice','coerce','dir','id','oct','sorted','intern']
 
+
 @app.route("/")
 def index():
     ''' Get a random builtin '''
     return builtin()
+
 
 @app.route("/<builtin>")
 def builtin(builtin=None):
@@ -36,6 +38,7 @@ def builtin(builtin=None):
 
     return render_template('show.html', builtin=builtin,
                             help=eval(builtin).__doc__)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
