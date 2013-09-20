@@ -2,9 +2,29 @@
 
 {% block content %}
   <div id="content">
+      <label>Choice another built-in</label>
+      <select name="" id="builtins">
+        <option value=""></option>
+      {% for c in choices %}
+        <option value="{{ c }}">{{ c }}</option>
+      {% endfor %}
+      </select>
+
+      or <a href="#" id="random">load next</a>
+
       <pre>{{ help }}</pre>
-      <!--<p class="permalink">-->
-          <!--[<a href="/{{ builtin }}">permalink</a> | <a href="#">submit example code</a>]-->
-      <!--</p>-->
   </div>
+
+  {% block js %}
+  <script>
+    $('#random').on('click', function (e) {
+      e.preventDefault();
+      window.location.href = '/';
+    });
+
+    $('#builtins').on('change', function () {
+      window.location.href = this.value;
+    });
+  </script>
+  {% endblock %}
 {% endblock %}
