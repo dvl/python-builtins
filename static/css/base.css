@@ -13,21 +13,9 @@ body {
 }
 
 #top {
-    width: 60%;
-    text-align: center;
+    width: 40%;
     margin: 0 auto 0 auto;
 }
-
-/*#logo {*/
-    /*float: left;*/
-/*}*/
-
-/*#menu {*/
-    /*float: left;*/
-    /*text-align: right;*/
-    /*padding: 60px 0 0 60px;*/
-    /*font-size: .8em;*/
-/*}*/
 
 #content {
   clear: both;
@@ -36,12 +24,7 @@ body {
   margin: 1em auto;
 }
 
-.permalink {
-  font-size: 50%;
-  color: #ddd;
-}
-
-.permalink a {
+a {
   text-decoration: none;
   color: inherit;
 }
