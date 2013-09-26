@@ -12,10 +12,11 @@
 
       or <a href="#" id="random">load next</a>
 
-      <pre>{{ help }}</pre>
+      <pre>{{ help|safe }}</pre>
   </div>
+{% endblock %}
 
-  {% block js %}
+{% block js %}
   <script>
     $('#random').on('click', function (e) {
       e.preventDefault();
@@ -26,5 +27,4 @@
       window.location.href = this.value;
     });
   </script>
-  {% endblock %}
 {% endblock %}

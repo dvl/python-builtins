@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
 
+  <title>{{ builtin }}</title>
+
   <link rel="author" href="/humans.txt" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
 
-  <title>{{ builtin }}</title>
+  {% block style %}{% endblock %}
 </head>
 <body>
   <a href="https://github.com/dvl/python-builtins" target="_blank">
