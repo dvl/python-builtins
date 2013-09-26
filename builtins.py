@@ -6,9 +6,9 @@ from flask import Flask
 from flask import make_response
 from flask import render_template
 
-from pygments import highlight
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
+# from pygments import highlight
+# from pygments.lexers import PythonLexer
+# from pygments.formatters import HtmlFormatter
 
 app = Flask(__name__)
 
@@ -44,9 +44,11 @@ def builtin(builtin=None):
 
     # TODO don't use eval()
     help_text = eval(builtin).__doc__
+    # help_text = highlight(eval(builtin).__doc__, PythonLexer(), HtmlFormatter())
 
     return render_template('show.html', builtin=builtin,
-                           choices=sorted(choices), help=help_text)
+                           choices=sorted(choices), help=help_text,
+                           css=HtmlFormatter().get_style_defs('.highlight'))
 
 
 if __name__ == '__main__':
