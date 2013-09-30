@@ -8,7 +8,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 __all__ = ['app', 'db']
 __version__ = 0.2
 
-app = Flask('python-builtins')
+app = Flask('python-builtins', template_folder='app/views', static_folder='public/assets')
 
 app.config['SECRET_KEY'] = 'secr3tk3yl0l'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
