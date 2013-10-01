@@ -1,1 +1,3 @@
-__all__ = ['front']
+__all__ = [
+    'front'
+]

@@ -8,15 +8,13 @@ from flask.ext.sqlalchemy import SQLAlchemy
 __all__ = ['app', 'db']
 __version__ = 0.2
 
-app = Flask('python-builtins', template_folder='app/views', static_folder='public/assets')
-
-app.config['SECRET_KEY'] = 'secr3tk3yl0l'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-
-app.debug = True
+app = Flask('python-builtins', template_folder='app/templates', static_folder='app/static')
+app.config.from_object('app.config')
 
 db = SQLAlchemy(app)
 
 # toolbar = DebugToolbarExtension(app)
 
 from app.controllers import *
+from app.handlers import *
+from app.routes import *
