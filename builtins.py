@@ -47,8 +47,7 @@ def builtin(builtin=None):
     # help_text = highlight(eval(builtin).__doc__, PythonLexer(), HtmlFormatter())
 
     return render_template('show.html', builtin=builtin,
-                           choices=sorted(choices), help=help_text,
-                           css=HtmlFormatter().get_style_defs('.highlight'))
+                           choices=sorted(choices), help=help_text)
 
 
 if __name__ == '__main__':
