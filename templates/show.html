@@ -2,7 +2,7 @@
 
 {% block content %}
   <div id="content">
-      <label>Choose another built-in</label>
+      <h3>Choose another built-in
       <select name="" id="builtins">
         <option value=""></option>
       {% for c in choices %}
@@ -10,7 +10,7 @@
       {% endfor %}
       </select>
 
-      or <a href="#" id="random">load next</a>
+      or <a href="#" id="random">load next</a></h3>
 
       <pre>{{ help|safe }}</pre>
   </div>
