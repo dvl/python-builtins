@@ -1,5 +1,7 @@
 # coding: utf-8
 
+import re
+import __builtin__
 from random import choice
 
 from flask import Flask
@@ -12,19 +14,9 @@ from flask import render_template
 
 app = Flask(__name__)
 
-choices = [
-    'abs', 'divmod', 'input', 'open', 'staticmethod', 'all', 'enumerate',
-    'int', 'ord', 'str', 'any', 'eval', 'isinstance', 'pow', 'sum',
-    'basestring', 'execfile', 'issubclass', 'print', 'super', 'bin', 'file',
-    'iter', 'property', 'tuple', 'bool', 'filter', 'len', 'range', 'type',
-    'bytearray', 'float', 'list', 'raw_input', 'unichr', 'callable',
-    'format', 'locals', 'reduce', 'unicode', 'chr', 'frozenset', 'long',
-    'reload', 'vars', 'classmethod', 'getattr', 'map', 'repr', 'xrange',
-    'cmp', 'globals', 'max', 'reversed', 'zip', 'compile', 'hasattr',
-    'memoryview', 'round', '__import__', 'complex', 'hash', 'min', 'set',
-    'apply', 'delattr', 'help', 'next', 'setattr', 'buffer', 'dict', 'hex',
-    'object', 'slice', 'coerce', 'dir', 'id', 'oct', 'sorted', 'intern'
-]
+re_module = re.compile(r'([a-z]|__import__)')
+
+choices = [i for i in dir(__builtin__) if re_module.match(i)]
 
 
 @app.route("/")
@@ -47,8 +39,7 @@ def builtin(builtin=None):
     # help_text = highlight(eval(builtin).__doc__, PythonLexer(), HtmlFormatter())
 
     return render_template('show.html', builtin=builtin,
-                           choices=sorted(choices), help=help_text,
-                           css=HtmlFormatter().get_style_defs('.highlight'))
+                           choices=sorted(choices), help=help_text)
 
 
 if __name__ == '__main__':
