@@ -1,24 +1,55 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{{ builtin }} | Python built-ins</title>
 
   <link rel="author" href="/humans.txt" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/jumbotron-narrow.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sticky-footer.css') }}"/>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
-  <title>{{ builtin }}</title>
+  <style>
+    #footer {background-color: #7c898f !important;}
+    #footer p { color: #FFF !important;}
+  </style>
+
+  {% block style %}{% endblock %}
 </head>
 <body>
   <a href="https://github.com/dvl/python-builtins" target="_blank">
       <!--<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">-->
     <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
   </a>
-  <header id="top">
-    <div id="logo">
-      <img src="{{ url_for('static', filename='imgs/python-builtins.png') }}" alt="Python Built-ins logo"/>
-    </div>
-  </header>
-  {% block content %}{% endblock %}
+
+      <div id="wrap">
+        <div class="container">
+          <div class="header">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="/">Home</a></li>
+              <li class="disabled"><a href="#">About</a></li>
+              <li class="disabled"><a href="#">More info</a></li>
+            </ul>
+            <h3 class="text-muted">
+              <img src="{{ url_for('static', filename='imgs/python-builtins.png') }}" alt="Python Built-ins logo"/>
+            </h3>
+          </div>
+
+      {% block content %}{% endblock %}
+
+
+      </div> <!-- /container -->
+    </div><!-- /wrap -->
+<br>
+      <div id="footer">
+        <div class="container">
+          <p class="text-muted credit">Python built-ins 2013</p>
+        </div>
+      </div>
 
   <script type="text/javascript" src="{{ url_for('static', filename='lib/jquery-1.10.2.min.js') }}"></script>
   <script>
@@ -32,5 +63,7 @@
   </script>
 
   {% block js %}{% endblock %}
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
 </body>
 </html>

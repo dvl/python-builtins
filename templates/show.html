@@ -2,7 +2,7 @@
 
 {% block content %}
   <div id="content">
-      <label>Choose another built-in</label>
+      <h3>Choose another built-in
       <select name="" id="builtins">
         <option value=""></option>
       {% for c in choices %}
@@ -10,12 +10,13 @@
       {% endfor %}
       </select>
 
-      or <a href="#" id="random">load next</a>
+      or <a href="#" id="random">load next</a></h3>
 
-      <pre>{{ help }}</pre>
+      <pre>{{ help|safe }}</pre>
   </div>
+{% endblock %}
 
-  {% block js %}
+{% block js %}
   <script>
     $('#random').on('click', function (e) {
       e.preventDefault();
@@ -26,5 +27,4 @@
       window.location.href = this.value;
     });
   </script>
-  {% endblock %}
 {% endblock %}
