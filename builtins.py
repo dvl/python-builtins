@@ -10,7 +10,7 @@ from flask import render_template
 
 # from pygments import highlight
 # from pygments.lexers import PythonLexer
-# from pygments.formatters import HtmlFormatter
+from pygments.formatters import HtmlFormatter
 
 app = Flask(__name__)
 
