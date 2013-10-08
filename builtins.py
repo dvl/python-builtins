@@ -36,8 +36,8 @@ def builtin(builtin=None):
     if builtin not in choices:
         return make_response(render_template('404.html'), 404)
 
-    return render_template('show.html', builtin=builtin,
-                            help=eval(builtin).__doc__)
+    return render_template('show.html', builtin=builtin, choices=choices,
+                           help=eval(builtin).__doc__)
 
 
 if __name__ == '__main__':
