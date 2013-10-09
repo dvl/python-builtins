@@ -1,86 +1,98 @@
-<<<<<<< HEAD
-body {
-  margin: 1em 0 0 0;
-  vertical-align: middle;
-  font-family: 'Lucida Console', 'Courier New';
-  font-size: 18pt;
-  font-style: normal;
-  text-shadow: none;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0;
-  word-spacing: 0;
-  line-height: 1.2;
+/*body {*/
+  /*margin: 1em 0 0 0;*/
+  /*vertical-align: middle;*/
+  /*font-family: 'Lucida Console', 'Courier New';*/
+  /*font-size: 18pt;*/
+  /*font-style: normal;*/
+  /*text-shadow: none;*/
+  /*text-decoration: none;*/
+  /*text-transform: none;*/
+  /*letter-spacing: 0;*/
+  /*word-spacing: 0;*/
+  /*line-height: 1.2;*/
+/*}*/
+
+/*a {*/
+  /*text-decoration: none;*/
+  /*color: inherit;*/
+/*}*/
+
+/*pre {*/
+ /*white-space: pre-wrap;*/
+ /*white-space: -moz-pre-wrap;*/
+ /*white-space: -pre-wrap;*/
+ /*white-space: -o-pre-wrap;*/
+ /*word-wrap: break-word;*/
+/*}*/
+
+/*#top {*/
+    /*width: 40%;*/
+    /*margin: 0 auto 0 auto;*/
+/*}*/
+
+/*#content {*/
+  /*clear: both;*/
+  /*width: 760px;*/
+  /*text-align: left;*/
+  /*margin: 1em auto;*/
+/*}*/
+
+/*.permalink a:hover {*/
+  /*text-decoration: underline;*/
+/*}*/
+
+
+body, html {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100%;
 }
 
-#top {
-    width: 40%;
-    margin: 0 auto 0 auto;
+.header, .marketing, .footer {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-#content {
-  clear: both;
-  width: 760px;
-  text-align: left;
-  margin: 1em auto;
+.header {
+  border-bottom: 1px solid #e5e5e5;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
 }
 
-.permalink a:hover {
-  text-decoration: underline;
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
 }
 
-pre {
- white-space: pre-wrap;
- white-space: -moz-pre-wrap;
- white-space: -pre-wrap;
- white-space: -o-pre-wrap;
- word-wrap: break-word;
-=======
-body {
-  margin: 1em 0 0 0;
-  vertical-align: middle;
-  font-family: 'Lucida Console', 'Courier New';
-  font-size: 18pt;
-  font-style: normal;
-  text-shadow: none;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0;
-  word-spacing: 0;
-  line-height: 1.2;
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
 }
 
-#top {
-    width: 40%;
-    margin: 0 auto 0 auto;
+@media screen and (min-width: 768px) {
+  .header, .marketing, .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
 }
 
-#content {
-  clear: both;
-  width: 760px;
-  text-align: left;
-  margin: 1em auto;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.permalink a:hover {
-  text-decoration: underline;
-}
-
-pre {
- white-space: pre-wrap;
- white-space: -moz-pre-wrap;
- white-space: -pre-wrap;
- white-space: -o-pre-wrap;
- word-wrap: break-word;
->>>>>>> 56a4c1c4b207a72b63d98bcf43707578f5bdc93a
+.opt-builtins {
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 20px;
 }
