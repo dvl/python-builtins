@@ -2,17 +2,24 @@
 
 {% block content %}
   <div id="content">
-      <h3>Choose another built-in
-      <select name="" id="builtins">
-        <option value=""></option>
-      {% for c in choices %}
-        <option value="{{ c }}">{{ c }}</option>
-      {% endfor %}
-      </select>
+    <section>
+      <div class="opt-builtins">
+        Choose another built-in
 
-      or <a href="#" id="random">load next</a></h3>
+        <select name="" id="builtins">
+          <option value=""></option>
+          {% for c in choices %}
+          <option value="{{ c }}">{{ c }}</option>
+          {% endfor %}
+        </select>
+
+        or <a href="#" id="random">load next</a>
+      </div>
 
       <pre>{{ help|safe }}</pre>
+    </section>
+
+
   </div>
 {% endblock %}
 
