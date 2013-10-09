@@ -1,22 +1,23 @@
+/* Default
+-------------------------------------------------- */
 body, html {
     padding-top: 20px;
     padding-bottom: 20px;
     height: 100%;
 }
 
+/* Container
+-------------------------------------------------- */
 .header {
     margin-bottom: 30px;
     border-bottom: 1px solid #e5e5e5;
 }
 
-/* Container
--------------------------------------------------- */
 .opt-builtins {
     font-weight: bold;
     font-size: 18px;
     padding-bottom: 20px;
 }
-
 
 /* Footer
 -------------------------------------------------- */
