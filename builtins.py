@@ -8,7 +8,6 @@ except:
 from random import choice
 
 from flask import Flask
-from flask import make_response
 from flask import render_template
 
 # from pygments import highlight
@@ -30,7 +29,7 @@ def builtin(builtin=None):
         builtin = choice(choices)
 
     if builtin not in choices:
-        return make_response(render_template('404.html'), 404)
+        return render_template('404.html'), 404
 
     help_text = getattr(builtins, builtin).__doc__
 
