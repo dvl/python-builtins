@@ -1,7 +1,10 @@
 # coding: utf-8
 
 import re
-import __builtin__
+try:
+    import __builtin__ as builtins
+except:
+    import builtins
 from random import choice
 
 from flask import Flask
@@ -16,7 +19,7 @@ app = Flask(__name__)
 
 re_module = re.compile(r'([a-z]|__import__)')
 
-choices = [i for i in dir(__builtin__) if re_module.match(i)]
+choices = [i for i in dir(builtins) if re_module.match(i)]
 
 
 @app.route("/")
