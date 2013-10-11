@@ -9,7 +9,7 @@
         <select name="" id="builtins">
           <option value=""></option>
           {% for c in choices %}
-          <option value="{{ c }}">{{ c }}</option>
+            <option value="{{ c }}" {% if c == builtin %}selected{% endif %}>{{ c }}</option>
           {% endfor %}
         </select>
 
