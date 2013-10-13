@@ -34,21 +34,22 @@ class Example(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     code = db.Column(db.Text, nullable=False)
-    upvode = db.Column(db.Integer, default=0)
-    downvode = db.Column(db.Integer, default=0)
+    upvote = db.Column(db.Integer, default=0)
+    downvote = db.Column(db.Integer, default=0)
 
     created_at = db.Column(db.DateTime, default=datetime.datetime.now)
     updated_at = db.Column(db.DateTime, onupdate=datetime.datetime.now)
 
     builtin = db.relationship('Builtin', back_populates='examples')
-    # user = db.relationship('User', back_populates='examples')
+    user = db.relationship('User', back_populates='examples')
 
-    def __init__(self, builtin_id, code):
+    def __init__(self, builtin_id, user_id, code):
         self.builtin_id = builtin_id
+        self.user_id = user_id
         self.code = code
 
     def __repr__(self):
-        return '<Example %r>' % (self, self.builtin_id)
+        return '<Example %r>' % (self.id)
 
 
 class Comment(db.Model):
@@ -58,6 +59,18 @@ class Comment(db.Model):
     builtin_id = db.Column(db.Integer, db.ForeignKey('builtins.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    builtin = db.relationship('Builtin', back_populates='comments')
-    # user = db.relationship('User', back_populates='comments')
+    message = db.Column(db.Text, nullable=False)
 
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now)
+    updated_at = db.Column(db.DateTime, onupdate=datetime.datetime.now)
+
+    builtin = db.relationship('Builtin', back_populates='comments')
+    user = db.relationship('User', back_populates='comments')
+
+    def __init__(self, builtin_id, user_id, message):
+        self.builtin_id = builtin_id
+        self.user_id = user_id
+        self.message = message
+
+    def __repr__(self):
+        return '<Comment %r>' % (self.id)
