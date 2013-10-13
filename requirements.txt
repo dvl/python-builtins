@@ -1,4 +1,4 @@
 Flask
 Flask-SQLAlchemy
 Flask-WTF
-flask-github
+Flask-OAuth

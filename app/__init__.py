@@ -2,7 +2,7 @@
 
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
-from flaskext.github import GithubAuth
+from flask_oauth import OAuth
 
 __version__ = 0.2
 
@@ -13,10 +13,16 @@ app.config.from_object('app.config')
 
 db = SQLAlchemy(app)
 
-github = GithubAuth(
-    client_id=app.config['GITHUB_CLIENT_ID'],
-    client_secret=app.config['GITHUB_CLIENT_SECRET'],
-    session_key='user_id'
+oauth = OAuth()
+github = oauth.remote_app(
+    'github',
+    base_url='https://api.github.com/',
+    request_token_url=None,
+    access_token_url='https://github.com/login/oauth/access_token',
+    authorize_url='https://github.com/login/oauth/authorize',
+    consumer_key=app.config['GITHUB_CLIENT_ID'],
+    consumer_secret=app.config['GITHUB_CLIENT_SECRET'],
+    request_token_params=None
 )
 
 from app.handlers import *

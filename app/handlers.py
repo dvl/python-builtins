@@ -1,4 +1,6 @@
-from flask import g, session, render_template
+# coding: utf-8
+
+from flask import render_template, session
 
 from app import app, github
 from app.models.builtin import Builtin
@@ -7,12 +9,12 @@ from app.models.user import User
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('error/404.html'), 404
+    return render_template('errors/404.html'), 404
 
 
 @app.errorhandler(500)
 def internal_server_error(error):
-    return render_template('error/500.html'), 500
+    return render_template('errors/500.html'), 500
 
 
 @app.context_processor
@@ -22,13 +24,16 @@ def inject_builtins():
     return dict(builtins=builtins)
 
 
-@app.before_request
-def before_request():
-    g.user = User.query.get(session['user_id']) if 'user_id' in session else None
+@github.tokengetter
+def get_github_oauth_token():
+    return session.get('oauth_token')
 
 
-@github.access_token_getter
-def token_getter():
-    user = g.user
-    if user is not None:
-        return user.github_access_token
+@app.context_processor
+def inject_user():
+    try:
+        user = User.by_token(session['oauth_token'][0])
+    except KeyError:
+        user = None
+
+    return dict(user=user)

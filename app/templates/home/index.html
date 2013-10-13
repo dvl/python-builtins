@@ -1,1 +1,9 @@
-Home
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+    {% for b in builtins %}
+        <li>{{ b.name }} - {{ b.examples|length }} - {{ b.comments|length }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

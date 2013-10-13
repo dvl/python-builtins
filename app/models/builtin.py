@@ -14,16 +14,19 @@ class Builtin(db.Model):
     syntax = db.Column(db.String, nullable=False)
     help = db.Column(db.Text, nullable=False)
 
+    created_at = db.Column(db.DateTime, default=datetime.datetime.now)
+    updated_at = db.Column(db.DateTime, onupdate=datetime.datetime.now)
+
     examples = db.relationship('Example', back_populates='builtin')
     comments = db.relationship('Comment', back_populates='builtin')
 
-    def __init__(self, name, syntax, help):
+    def __init__(self, name, syntax='N/A', help='N/A'):
         self.name = name
         self.syntax = syntax
         self.help = help
 
     def __repr__(self):
-        return '<Builtin %r>' % (self.function,)
+        return '<Builtin %r>' % (self.name,)
 
 
 class Example(db.Model):
