@@ -11,5 +11,5 @@ class User(db.Model):
     username = db.Column(db.String)
     github_access_token = db.Column(db.Integer)
 
-    examples = db.relationship('Example', back_populates='example')
-    comments = db.relationship('Comment', back_populates='comment')
+    examples = db.relationship('Example', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
