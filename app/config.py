@@ -1,3 +1,12 @@
-DEBUG = True
-SECRET_KEY = '\xd0gQ\xf7u\xf4^\x04\xcf\xde\x99\xf0I\xf6\xd0c\x83hz\xe8\xb8\x96\x1a\xd4'
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+DEBUG = False
+SECRET_KEY = ''
+
+SQLALCHEMY_DATABASE_URI = 'sqlite://'
+
+GITHUB_CLIENT_ID = ''
+GITHUB_CLIENT_SECRET = ''
+
+try:
+    from local_config import *
+except ImportError:
+    pass
