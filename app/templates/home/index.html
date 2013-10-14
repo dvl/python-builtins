@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 
+{% block style %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/monokai.css') }}">
+{% endblock %}
+
+
 {% block content %}
-    <ul>
-    {% for b in builtins %}
-        <li>{{ b.name }} - {{ b.examples|length }} - {{ b.comments|length }}</li>
-    {% endfor %}
-    </ul>
+    <h3>{{ builtin.name|title }}</h3>
+
+    {% highlight 'python' %}{{ builtin.syntax }}{% endhighlight %}
+
+    <pre>{{ builtin.help }}</pre>
+
+    <h3>Examples</h3>
+    {% highlight 'python' %}for x in range(1,10):
+    print(x){% endhighlight %}
+
+    <h3>Comments</h3>
+    <pre></pre>
+
 {% endblock %}

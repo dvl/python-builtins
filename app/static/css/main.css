@@ -1,0 +1,30 @@
+body {
+    padding-top: 20px;
+}
+
+header {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+header img {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 80px;
+  padding-bottom: 19px;
+}
+
+article {
+    padding-top: 19px;
+}
+
+footer {
+    color: #fff;
+    padding: 19px;
+    background-color: #7C898F
+}
+
+footer a {
+    color: #fff !important;
+}

@@ -3,6 +3,9 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_oauth import OAuth
+from flask.ext.login import LoginManager
+
+import jinja2_highlight
 
 __version__ = 0.2
 
@@ -24,6 +27,11 @@ github = oauth.remote_app(
     consumer_secret=app.config['GITHUB_CLIENT_SECRET'],
     request_token_params=None
 )
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+app.jinja_options['extensions'].append('jinja2_highlight.HighlightExtension')
 
 from app.handlers import *
 from app.routes import *

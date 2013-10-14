@@ -1,6 +1,7 @@
 # coding: utf-8
 
 from flask import redirect, url_for, session, request, flash
+from flask.ext.login import login_user, login_required
 
 from app import github, db
 from app.models.user import User
@@ -54,10 +55,13 @@ def authorized(response):
 
     db.session.commit()
 
+    login_user(user)
+
     flash(u'Você foi logado!', 'success')
     return redirect(next_url)
 
 
+@login_required
 def logout():
     session.pop('oauth_token', None)
     flash(u'Você foi deslogado!', 'success')

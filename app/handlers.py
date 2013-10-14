@@ -2,7 +2,7 @@
 
 from flask import render_template, session
 
-from app import app, github
+from app import app, github, login_manager
 from app.models.builtin import Builtin
 from app.models.user import User
 
@@ -37,3 +37,8 @@ def inject_user():
         user = None
 
     return dict(user=user)
+
+
+@login_manager.user_loader
+def load_user(userid):
+    return User.query.get(userid)
